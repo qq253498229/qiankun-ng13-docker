@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
   @Input() data: {
     label: string,
+    router?: string,
     link?: string,
     sub?: any[]
   }[] = [];

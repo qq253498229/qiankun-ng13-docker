@@ -14,7 +14,6 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-import { MenuComponent } from './common/menu/menu.component';
 
 
 const THIRD_MODULES: any[] = [
@@ -47,21 +46,19 @@ const PIPES: any[] = [];
     ...PIPES,
     ...COMPONENTS,
     ...DIRECTIVES,
-    MenuComponent,
   ],
   imports: [
     CommonModule,
     ...THIRD_MODULES,
     ...NG_ZORRO_MODULES,
   ],
-    exports: [
-        ...THIRD_MODULES,
-        ...NG_ZORRO_MODULES,
-        ...PIPES,
-        ...COMPONENTS,
-        ...DIRECTIVES,
-        MenuComponent,
-    ],
+  exports: [
+    ...THIRD_MODULES,
+    ...NG_ZORRO_MODULES,
+    ...PIPES,
+    ...COMPONENTS,
+    ...DIRECTIVES,
+  ],
 })
 export class SharedModule {
 }

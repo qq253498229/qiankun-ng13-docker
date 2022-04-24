@@ -1,10 +1,5 @@
 <ng-container *ngFor="let item of data">
-  <ng-container *ngIf="item.sub && item.sub.length > 0">
-    <li nz-submenu [nzTitle]="item.label">
-      <ul app-menu [data]="item.sub">
-      </ul>
-    </li>
-  </ng-container>
+
   <ng-container *ngIf="!item.sub || item.sub.length === 0">
     <ng-container *ngIf="item.link">
       <li nz-menu-item>
@@ -12,7 +7,21 @@
       </li>
     </ng-container>
     <ng-container *ngIf="!item.link">
-      <li nz-menu-item>{{item.label}}</li>
+      <ng-container *ngIf="item.router">
+        <li nz-menu-item nzMatchRouter>
+          <a [routerLink]="item.router">{{item.label}}</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="!item.router">
+        <li nz-menu-item>{{item.label}}</li>
+      </ng-container>
     </ng-container>
   </ng-container>
+
+  <ng-container *ngIf="item.sub && item.sub.length > 0">
+    <li nz-submenu [nzTitle]="item.label">
+      <ul app-menu [data]="item.sub"></ul>
+    </li>
+  </ng-container>
+
 </ng-container>

@@ -9,8 +9,8 @@ import { registerMicroApps, runAfterFirstMounted, start } from 'qiankun';
 export class AppComponent implements OnInit {
 
   menu = [
-    {label: 'Navigation One'},
-    {label: 'Navigation Two'},
+    {label: '商品列表', router: '/shop'},
+    {label: '用户管理', router: '/user'},
     {
       label: 'Navigation Three - Submenu', sub: [
         {label: 'Option 1'},
