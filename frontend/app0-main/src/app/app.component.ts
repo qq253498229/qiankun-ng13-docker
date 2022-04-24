@@ -7,6 +7,31 @@ import { registerMicroApps, runAfterFirstMounted, start } from 'qiankun';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+
+  menu = [
+    {label: 'Navigation One'},
+    {label: 'Navigation Two'},
+    {
+      label: 'Navigation Three - Submenu', sub: [
+        {label: 'Option 1'},
+        {label: 'Option 2'},
+        {
+          label: 'Item 2', sub: [
+            {label: 'Option 3'},
+            {label: 'Option 4'},
+            {
+              label: 'Sub Menu', sub: [
+                {label: 'Option 5'},
+                {label: 'Option 6'},
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {label: 'Navigation Four - Link', link: 'https://ng.ant.design'},
+  ];
+
   ngOnInit(): void {
     this.registerMicroApps();
 

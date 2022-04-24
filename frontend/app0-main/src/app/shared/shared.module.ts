@@ -3,6 +3,18 @@ import { CommonModule } from '@angular/common';
 import { EmptyComponent } from './common/empty/empty.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { MenuComponent } from './common/menu/menu.component';
 
 
 const THIRD_MODULES: any[] = [
@@ -11,25 +23,23 @@ const THIRD_MODULES: any[] = [
   HttpClientModule,
 ];
 const NG_ZORRO_MODULES: any[] = [
-  // IconsProviderModule,
-  // NzLayoutModule,
-  // NzFormModule,
-  // NzMenuModule,
-  // NzButtonModule,
-  // NzTableModule,
-  // NzDividerModule,
-  // NzInputModule,
-  // NzSelectModule,
-  // NzMessageModule,
+  NzLayoutModule,
+  NzFormModule,
+  NzMenuModule,
+  NzButtonModule,
+  NzTableModule,
+  NzDividerModule,
+  NzInputModule,
+  NzSelectModule,
+  NzMessageModule,
+  NzIconModule,
+  NzBreadCrumbModule,
 ];
 const COMPONENTS: any[] = [
   EmptyComponent,
 ];
 const DIRECTIVES: any[] = [];
 const PIPES: any[] = [];
-const HTTP_INTERCEPTOR_LIST: any[] = [
-  // {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
-];
 
 
 @NgModule({
@@ -37,22 +47,21 @@ const HTTP_INTERCEPTOR_LIST: any[] = [
     ...PIPES,
     ...COMPONENTS,
     ...DIRECTIVES,
+    MenuComponent,
   ],
   imports: [
     CommonModule,
     ...THIRD_MODULES,
     ...NG_ZORRO_MODULES,
   ],
-  exports: [
-    ...THIRD_MODULES,
-    ...NG_ZORRO_MODULES,
-    ...PIPES,
-    ...COMPONENTS,
-    ...DIRECTIVES,
-  ],
-  providers: [
-    ...HTTP_INTERCEPTOR_LIST,
-  ],
+    exports: [
+        ...THIRD_MODULES,
+        ...NG_ZORRO_MODULES,
+        ...PIPES,
+        ...COMPONENTS,
+        ...DIRECTIVES,
+        MenuComponent,
+    ],
 })
 export class SharedModule {
 }
