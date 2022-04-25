@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmptyRouteComponent } from './empty-route/empty-route.component';
+import { EmptyRouteComponent } from './shared/components/empty-route/empty-route.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'shop', pathMatch: 'full'},
