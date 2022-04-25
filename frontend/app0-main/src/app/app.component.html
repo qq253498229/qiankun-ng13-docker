@@ -1,6 +1,17 @@
-<button routerLink="/user/list">user</button>
-<button routerLink="/shop/order">order</button>
-<button routerLink="/shop/collect">collect</button>
-
-<router-outlet></router-outlet>
-<div id="subApp"></div>
+<nz-layout>
+  <nz-header>
+    <div class="logo"></div>
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item routerLink="/user/list">user</li>
+      <li nz-menu-item routerLink="/shop/order">order</li>
+      <li nz-menu-item routerLink="/shop/collect">collect</li>
+    </ul>
+  </nz-header>
+  <nz-content>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+      <div id="subApp"></div>
+    </div>
+  </nz-content>
+  <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+</nz-layout>
