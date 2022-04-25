@@ -8,17 +8,6 @@ import { registerMicroApps, runAfterFirstMounted, start } from 'qiankun';
 })
 export class AppComponent implements OnInit {
 
-  menu = [
-    {label: '商品列表', router: '/shop', icon: 'shopping'},
-    {label: '用户管理', router: '/user', icon: 'user'},
-    {
-      label: '登录', right: true, icon: 'login', sub: [
-        {label: '我的订单'},
-        {label: '我的收藏'},
-      ],
-    },
-  ];
-
   ngOnInit(): void {
     this.registerMicroApps();
 
