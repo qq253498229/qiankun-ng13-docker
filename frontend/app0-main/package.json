@@ -18,7 +18,6 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
-    "ng-zorro-antd": "^13.1.1",
     "qiankun": "^2.7.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
