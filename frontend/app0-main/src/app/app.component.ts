@@ -8,10 +8,13 @@ import { registerMicroApps, runAfterFirstMounted, start } from 'qiankun';
 })
 export class AppComponent implements OnInit {
 
+  constructor() {
+  }
+
   ngOnInit(): void {
     this.registerMicroApps();
 
-    // setDefaultMountApp('/app1');
+    // setDefaultMountApp('/shop');
 
     start();
 
@@ -22,6 +25,7 @@ export class AppComponent implements OnInit {
 
   /** 注册子项目 */
   registerMicroApps(): void {
+    console.log('11111');
     registerMicroApps(
       [
         {

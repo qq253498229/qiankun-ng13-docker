@@ -4,17 +4,26 @@
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
       <li nz-menu-item nzMatchRouter>
         <i nz-icon nzType="shopping"></i>
-        <a routerLink="/shop">商品列表</a>
+        <a routerLink="/shop/goods">商品列表</a>
       </li>
       <li nz-menu-item nzMatchRouter>
         <i nz-icon nzType="user"></i>
         <a routerLink="/user">用户管理</a>
       </li>
-
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/shop/order">我的订单</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/shop/collect">我的收藏</a>
+      </li>
       <li nz-submenu class="float-right" [nzTitle]="myTpl">
         <ul>
-          <li nz-menu-item>我的订单</li>
-          <li nz-menu-item>我的收藏</li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/shop/order">我的订单</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/shop/collect">我的收藏</a>
+          </li>
         </ul>
       </li>
       <ng-template #myTpl>
