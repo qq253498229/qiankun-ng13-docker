@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
     router?: string,
     link?: string,
     right?: boolean,
+    icon?: string,
     sub?: any[]
   }[] = [];
 

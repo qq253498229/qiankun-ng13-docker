@@ -9,27 +9,14 @@ import { registerMicroApps, runAfterFirstMounted, start } from 'qiankun';
 export class AppComponent implements OnInit {
 
   menu = [
-    {label: '商品列表', router: '/shop'},
-    {label: '用户管理', router: '/user'},
+    {label: '商品列表', router: '/shop', icon: 'shopping'},
+    {label: '用户管理', router: '/user', icon: 'user'},
     {
-      label: 'Navigation Three - Submenu', right: true, sub: [
-        {label: 'Option 1'},
-        {label: 'Option 2'},
-        {
-          label: 'Item 2', sub: [
-            {label: 'Option 3'},
-            {label: 'Option 4'},
-            {
-              label: 'Sub Menu', sub: [
-                {label: 'Option 5'},
-                {label: 'Option 6'},
-              ],
-            },
-          ],
-        },
+      label: '登录', right: true, icon: 'login', sub: [
+        {label: '我的订单'},
+        {label: '我的收藏'},
       ],
     },
-    {label: 'Navigation Four - Link', link: 'https://ng.ant.design'},
   ];
 
   ngOnInit(): void {
