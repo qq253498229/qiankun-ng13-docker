@@ -11,13 +11,16 @@
         <a routerLink="/user">用户管理</a>
       </li>
 
-      <li nz-submenu class="float-right" nzTitle="登录">
+      <li nz-submenu class="float-right" [nzTitle]="myTpl">
         <ul>
           <li nz-menu-item>我的订单</li>
           <li nz-menu-item>我的收藏</li>
         </ul>
       </li>
-
+      <ng-template #myTpl>
+        <span>哈喽啊 </span>
+        <i nz-icon nzType="caret-down"></i>
+      </ng-template>
     </ul>
   </nz-header>
   <nz-content>
