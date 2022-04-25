@@ -1,7 +1,23 @@
 <nz-layout>
   <nz-header>
     <div class="logo"></div>
-    <ul nz-menu nzTheme="dark" nzMode="horizontal" app-menu [data]="menu">
+    <ul nz-menu nzTheme="dark" nzMode="horizontal">
+      <li nz-menu-item nzMatchRouter>
+        <i nz-icon nzType="shopping"></i>
+        <a routerLink="/shop">商品列表</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <i nz-icon nzType="user"></i>
+        <a routerLink="/user">用户管理</a>
+      </li>
+
+      <li nz-submenu class="float-right" nzTitle="登录">
+        <ul>
+          <li nz-menu-item>我的订单</li>
+          <li nz-menu-item>我的收藏</li>
+        </ul>
+      </li>
+
     </ul>
   </nz-header>
   <nz-content>
