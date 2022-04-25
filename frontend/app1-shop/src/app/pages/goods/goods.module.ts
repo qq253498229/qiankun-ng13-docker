@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '', component: ListComponent},
-  {path: 'list', component: ListComponent},
 ];
 
 @NgModule({
@@ -17,5 +16,5 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
 })
-export class UserModule {
+export class GoodsModule {
 }

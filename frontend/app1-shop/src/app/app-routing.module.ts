@@ -6,6 +6,10 @@ import { APP_BASE_HREF } from '@angular/common';
 const routes: Routes = [
   {path: '', redirectTo: 'order', pathMatch: 'full'},
   {
+    path: 'goods',
+    loadChildren: () => import('./pages/goods/goods.module').then(m => m.GoodsModule),
+  },
+  {
     path: 'order',
     loadChildren: () => import('./pages/order/order.module').then(m => m.OrderModule),
   },
