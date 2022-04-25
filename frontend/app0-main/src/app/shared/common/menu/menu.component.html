@@ -2,24 +2,24 @@
 
   <ng-container *ngIf="!item.sub || item.sub.length === 0">
     <ng-container *ngIf="item.link">
-      <li nz-menu-item>
+      <li nz-menu-item [ngClass]="item.right ? 'float-right' : ''">
         <a [href]="item.link" target="_blank" rel="noopener noreferrer">{{item.label}}</a>
       </li>
     </ng-container>
     <ng-container *ngIf="!item.link">
       <ng-container *ngIf="item.router">
-        <li nz-menu-item nzMatchRouter>
+        <li nz-menu-item nzMatchRouter [ngClass]="item.right ? 'float-right' : ''">
           <a [routerLink]="item.router">{{item.label}}</a>
         </li>
       </ng-container>
       <ng-container *ngIf="!item.router">
-        <li nz-menu-item>{{item.label}}</li>
+        <li nz-menu-item [ngClass]="item.right ? 'float-right' : ''">{{item.label}}</li>
       </ng-container>
     </ng-container>
   </ng-container>
 
   <ng-container *ngIf="item.sub && item.sub.length > 0">
-    <li nz-submenu [nzTitle]="item.label">
+    <li nz-submenu [nzTitle]="item.label" [ngClass]="item.right ? 'float-right' : ''">
       <ul app-menu [data]="item.sub"></ul>
     </li>
   </ng-container>

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
     {label: '商品列表', router: '/shop'},
     {label: '用户管理', router: '/user'},
     {
-      label: 'Navigation Three - Submenu', sub: [
+      label: 'Navigation Three - Submenu', right: true, sub: [
         {label: 'Option 1'},
         {label: 'Option 2'},
         {
