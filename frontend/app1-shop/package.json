@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "ng-zorro-antd": "^13.1.1",
     "rxjs": "~7.5.0",
     "single-spa": ">=4.0.0",
     "single-spa-angular": "^6.3.0",

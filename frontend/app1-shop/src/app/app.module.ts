@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmptyRouteComponent } from './shared/components/empty-route/empty-route.component';
 import { SharedModule } from './shared/shared.module';
+import { registerLocaleData } from '@angular/common';
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
+import zh from '@angular/common/locales/zh';
+
+registerLocaleData(zh);
 
 @NgModule({
   declarations: [
@@ -16,7 +21,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [{provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent],
 })
 export class AppModule {
