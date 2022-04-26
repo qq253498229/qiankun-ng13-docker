@@ -4,7 +4,7 @@ import { EmptyRouteComponent } from './shared/components/empty-route/empty-route
 import { APP_BASE_HREF } from '@angular/common';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'order', pathMatch: 'full'},
+  {path: '', redirectTo: 'goods', pathMatch: 'full'},
   {
     path: 'goods',
     loadChildren: () => import('./pages/goods/goods.module').then(m => m.GoodsModule),
