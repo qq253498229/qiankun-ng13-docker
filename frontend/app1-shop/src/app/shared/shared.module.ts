@@ -7,6 +7,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 const THIRD_MODULES: any[] = [
   FormsModule,
@@ -18,6 +20,8 @@ const NG_ZORRO_MODULES: any[] = [
   NzIconModule,
   NzDividerModule,
   NzTableModule,
+  NzCardModule,
+  NzGridModule,
 ];
 const COMPONENTS: any[] = [];
 const DIRECTIVES: any[] = [];
