@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { registerMicroApps, start } from 'qiankun';
 
 @Component({
@@ -7,8 +7,8 @@ import { registerMicroApps, start } from 'qiankun';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
-  constructor() {
+  constructor(private ngZone: NgZone) {
+    (window as any).ngZone = this.ngZone;
   }
 
   ngOnInit(): void {
@@ -16,14 +16,12 @@ export class AppComponent implements OnInit {
   }
 
   initQiankun() {
-    registerMicroApps([
-      {
-        name: 'shop app', // app name registered
-        entry: '//localhost:4201',
-        container: '#subApp',
-        activeRule: '/shop',
-      },
-    ]);
+    registerMicroApps([{
+      name: 'shopApp', // app name registered
+      entry: '//localhost:4201',
+      container: '#subApp',
+      activeRule: '/shop',
+    }]);
 
     start();
   }
