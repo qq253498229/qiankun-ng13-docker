@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     const container = '#subApp';
     registerMicroApps([{
       name: 'shopApp', // app name registered
-      entry: `${environment.production ? '/child-shop/' : '//localhost:4201/shop/'}`,
+      entry: `${environment.production ? '/child-shop/' : '//localhost:4201/'}`,
       activeRule: '/shop',
       container,
     }]);

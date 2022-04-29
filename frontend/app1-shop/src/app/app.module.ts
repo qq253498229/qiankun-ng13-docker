@@ -49,7 +49,7 @@ const routes: Routes = [
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
     // @ts-ignore
-    {provide: APP_BASE_HREF, useValue: '/shop'},
+    {provide: APP_BASE_HREF, useValue: window.__POWERED_BY_QIANKUN__ ? '/shop' : '/'},
   ],
   bootstrap: [AppComponent],
 })
