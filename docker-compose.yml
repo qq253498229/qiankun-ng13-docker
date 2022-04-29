@@ -1,0 +1,8 @@
+version: "3"
+services:
+  front-main:
+    image: registry.cn-beijing.aliyuncs.com/codeforfun/qiankun-demo1-main:latest
+    build:
+      context: frontend/app0-main
+    ports:
+      - "80:80"
