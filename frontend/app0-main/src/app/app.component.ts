@@ -17,11 +17,12 @@ export class AppComponent implements OnInit {
   }
 
   initQiankun() {
+    const container = '#subApp';
     registerMicroApps([{
       name: 'shopApp', // app name registered
-      entry: `${environment.production ? '/shop/' : '//localhost:4201/shop/'}`,
-      container: '#subApp',
-      activeRule: '/base/shop',
+      entry: `${environment.production ? '/child-shop/' : '//localhost:4201/shop/'}`,
+      activeRule: '/shop',
+      container,
     }]);
 
     start();

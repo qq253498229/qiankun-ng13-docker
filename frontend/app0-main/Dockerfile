@@ -10,8 +10,6 @@ FROM nginx:1.21.6-alpine
 ENV TZ=PRC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ENV APP_NAME=base
-
 RUN echo "server { \
     listen       80; \
     add_header Access-Control-Allow-Origin *;\
@@ -20,11 +18,11 @@ RUN echo "server { \
     server_name  localhost; \
     root /usr/share/nginx/html; \
     index index.html index.htm; \
-    location /$APP_NAME { \
-        alias /usr/share/nginx/html/$APP_NAME;\
-        try_files \$uri \$uri/ /$APP_NAME/index.html; \
+    location / { \
+        alias /usr/share/nginx/html/;\
+        try_files \$uri \$uri/ /index.html; \
     } \
 }" > /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist/app0-main /usr/share/nginx/html/$APP_NAME
+COPY --from=builder /app/dist/app0-main /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
