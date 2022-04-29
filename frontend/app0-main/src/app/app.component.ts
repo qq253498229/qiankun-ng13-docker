@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { registerMicroApps, start } from 'qiankun';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,9 @@ export class AppComponent implements OnInit {
   initQiankun() {
     registerMicroApps([{
       name: 'shopApp', // app name registered
-      entry: '//localhost:4201',
+      entry: `${environment.production ? '/shop/' : '//localhost:4201/shop/'}`,
       container: '#subApp',
-      activeRule: '/shop',
+      activeRule: '/base/shop',
     }]);
 
     start();

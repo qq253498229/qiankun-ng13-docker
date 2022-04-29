@@ -10,7 +10,7 @@ FROM nginx:1.21.6-alpine
 ENV TZ=PRC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ENV APP_NAME=base
+ENV APP_NAME=shop
 
 RUN echo "server { \
     listen       80; \
@@ -26,5 +26,5 @@ RUN echo "server { \
     } \
 }" > /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist/app0-main /usr/share/nginx/html/$APP_NAME
+COPY --from=builder /app/dist/app1-shop /usr/share/nginx/html/$APP_NAME
 CMD ["nginx", "-g", "daemon off;"]

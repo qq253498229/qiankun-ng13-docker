@@ -1,8 +1,23 @@
 version: "3"
 services:
+  nginx:
+    image: registry.cn-beijing.aliyuncs.com/codeforfun/qiankun-demo1-nginx:latest
+    build:
+      context: nginx
+    ports:
+      - "80:80"
+    links:
+      - front-main
+      - front-shop
   front-main:
     image: registry.cn-beijing.aliyuncs.com/codeforfun/qiankun-demo1-main:latest
     build:
       context: frontend/app0-main
     ports:
-      - "80:80"
+      - "30001:80"
+  front-shop:
+    image: registry.cn-beijing.aliyuncs.com/codeforfun/qiankun-demo1-shop:latest
+    build:
+      context: frontend/app1-shop
+    ports:
+      - "30002:80"
