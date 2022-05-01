@@ -31,9 +31,8 @@ export class CommonService {
   compare(source: any, target: any) {
     let result: any = {};
     for (let k in target) {
-      if (typeof source[k] === 'string' && target[k] !== source[k]) {
-        result[k] = target[k];
-      } else if (typeof source[k] === 'object' && JSON.stringify(target[k]) !== JSON.stringify(source[k])) {
+      if ((typeof source[k] === 'string' && target[k] !== source[k])
+        || (typeof source[k] === 'object' && JSON.stringify(target[k]) !== JSON.stringify(source[k]))) {
         result[k] = target[k];
       }
     }
