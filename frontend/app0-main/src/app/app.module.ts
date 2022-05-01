@@ -10,6 +10,12 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from '../environments/environment';
+import { states } from './store';
+import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
+import { CustomRouterStateSerializer } from './store/router/router-state.serializer';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 registerLocaleData(zh);
 
@@ -23,9 +29,13 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    NgxsModule.forRoot([...states], {developmentMode: !environment.production}),
+    NgxsStoragePluginModule.forRoot(),
+    NgxsRouterPluginModule.forRoot(),
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
+    {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
   ],
   bootstrap: [AppComponent],
 })

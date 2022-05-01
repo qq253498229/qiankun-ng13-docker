@@ -27,7 +27,6 @@ const COMPONENTS: any[] = [];
 const DIRECTIVES: any[] = [];
 const PIPES: any[] = [];
 
-
 @NgModule({
   declarations: [
     ...PIPES,
@@ -48,4 +47,17 @@ const PIPES: any[] = [];
   ],
 })
 export class SharedModule {
+  public onGlobalStateChange: any;
+  public setGlobalState: any;
+  public offGlobalStateChange: any;
+
+  public setGlobalStateActions(
+    onGlobalStateChange: any,
+    setGlobalState: any,
+    offGlobalStateChange: any,
+  ) {
+    this.onGlobalStateChange = onGlobalStateChange;
+    this.setGlobalState = setGlobalState;
+    this.offGlobalStateChange = offGlobalStateChange;
+  }
 }

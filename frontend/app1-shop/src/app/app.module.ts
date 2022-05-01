@@ -10,6 +10,11 @@ import { EmptyComponent } from './shared/components/empty/empty.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth/auth.guard';
 import { SharedModule } from './shared/shared.module';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from '../environments/environment';
+import { NgxsRouterPluginModule, RouterStateSerializer } from '@ngxs/router-plugin';
+import { CustomRouterStateSerializer } from './store/router/router-state.serializer';
+import { states } from './store';
 
 registerLocaleData(zh);
 
@@ -45,11 +50,14 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     SharedModule,
+    NgxsModule.forRoot([...states], {developmentMode: !environment.production}),
+    NgxsRouterPluginModule.forRoot(),
   ],
   providers: [
     {provide: NZ_I18N, useValue: zh_CN},
     // @ts-ignore
     {provide: APP_BASE_HREF, useValue: window.__POWERED_BY_QIANKUN__ ? '/shop' : '/'},
+    {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
   ],
   bootstrap: [AppComponent],
 })

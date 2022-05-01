@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../../../shared/services/common.service';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,9 @@ export class ListComponent implements OnInit {
     collect?: boolean,
   }[] = [];
 
-  constructor() {
+  constructor(
+    private service: CommonService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -27,4 +30,10 @@ export class ListComponent implements OnInit {
     }
   }
 
+  test1() {
+    const state = {
+      test: '123',
+    };
+    this.service.setGlobalState(state);
+  }
 }

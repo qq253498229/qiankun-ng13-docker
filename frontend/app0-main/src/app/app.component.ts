@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { registerMicroApps, start } from 'qiankun';
+import { initGlobalState, registerMicroApps, start } from 'qiankun';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -12,8 +12,12 @@ export class AppComponent implements OnInit {
     (window as any).ngZone = this.ngZone;
   }
 
+  actions: any;
+
   ngOnInit(): void {
     this.initQiankun();
+
+    this.initState();
   }
 
   initQiankun() {
@@ -26,5 +30,16 @@ export class AppComponent implements OnInit {
     }]);
 
     start();
+  }
+
+  initState() {
+    const state = {
+      test: '',
+    };
+    this.actions = initGlobalState(state);
+    this.actions.onGlobalStateChange((state: Record<string, any>, prev: Record<string, any>) => {
+      // state: 变更后的状态; prev 变更前的状态
+      console.log(prev, state);
+    });
   }
 }

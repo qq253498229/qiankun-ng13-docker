@@ -4,6 +4,7 @@ import { ListComponent } from './list/list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 import { DetailsComponent } from './details/details.component';
+import { CommonService } from '../../shared/services/common.service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'list'},
@@ -20,6 +21,9 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
+  ],
+  providers: [
+    CommonService,
   ],
 })
 export class GoodsModule {

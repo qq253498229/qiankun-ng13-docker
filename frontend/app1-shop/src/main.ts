@@ -4,6 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { QiankunUtil } from './app/shared/utils/qiankunUtil';
 
 if (environment.production) {
   enableProdMode();
@@ -25,7 +26,13 @@ export async function bootstrap(props: Object) {
   console.log(props);
 }
 
-export async function mount(props: Object) {
+export async function mount(props: any) {
+  let utils = QiankunUtil.getInstance();
+  utils.setMicroAppStateActions(
+    props.onGlobalStateChange,
+    props.setGlobalState,
+    props.offGlobalStateChange,
+  );
   render();
 }
 

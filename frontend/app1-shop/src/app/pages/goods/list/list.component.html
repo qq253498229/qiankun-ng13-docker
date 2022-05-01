@@ -1,7 +1,7 @@
 <div nz-row>
   <ng-container *ngFor="let item of listOfData">
     <div class="card-div" nz-col nzSpan="4">
-      <nz-card nzHoverable nzBorderless [nzCover]="coverTemplate">
+      <nz-card nzHoverable nzBorderless [nzCover]="coverTemplate" (click)="test1()">
         <p class="title">
           <a>{{item.title}}</a>
         </p>
