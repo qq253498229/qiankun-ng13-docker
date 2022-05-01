@@ -31,9 +31,6 @@ export class ListComponent implements OnInit {
   }
 
   test1() {
-    const state = {
-      test1: '123',
-    };
-    this.service.setGlobalState(state);
+    this.service.setGlobalState({test1: '123'});
   }
 }

@@ -17,13 +17,16 @@ export class CommonService {
     };
     this.actions = initGlobalState(state);
     this.actions.onGlobalStateChange((state: any, prev: any) => {
-      // state: 变更后的状态; prev 变更前的状态
-      console.log('main', prev, state);
-      console.log('main diff', this.diff(prev, state));
+      const diff = this.compare(prev, state);
+      if (Object.keys(diff).length !== 0) {
+        // state: 变更后的状态; prev 变更前的状态
+        console.log('main', prev, state);
+        console.log('main diff', diff);
+      }
     });
   }
 
-  diff(source: any, target: any) {
+  compare(source: any, target: any) {
     let result: any = {};
     for (let k in target) {
       if (target[k] !== source[k]) {
@@ -31,12 +34,12 @@ export class CommonService {
       }
     }
     for (let k in source) {
-      if (!target[k]) {
+      if (undefined === target[k]) {
         result[k] = target[k];
       }
     }
     return result;
-  }
+  };
 
   setGlobalState(state: any) {
     this.actions.setGlobalState(state);

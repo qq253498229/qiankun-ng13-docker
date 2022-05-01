@@ -19,13 +19,16 @@ export class CommonService {
     this.setGlobalState = util.setGlobalState;
     this.offGlobalStateChange = util.offGlobalStateChange;
     this.onGlobalStateChange((state: any, prev: any) => {
-      // state: 变更后的状态; prev 变更前的状态
-      console.log('shop', prev, state);
-      console.log('shop diff', this.diff(prev, state));
+      const diff = this.compare(prev, state);
+      if (Object.keys(diff).length !== 0) {
+        // state: 变更后的状态; prev 变更前的状态
+        console.log('shop', prev, state);
+        console.log('shop diff', diff);
+      }
     });
   }
 
-  diff(source: any, target: any) {
+  compare(source: any, target: any) {
     let result: any = {};
     for (let k in target) {
       if (target[k] !== source[k]) {
@@ -33,10 +36,10 @@ export class CommonService {
       }
     }
     for (let k in source) {
-      if (!target[k]) {
+      if (undefined === target[k]) {
         result[k] = target[k];
       }
     }
     return result;
-  }
+  };
 }
