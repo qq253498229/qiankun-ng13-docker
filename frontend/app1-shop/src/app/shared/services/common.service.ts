@@ -18,5 +18,9 @@ export class CommonService {
     this.onGlobalStateChange = util.onGlobalStateChange;
     this.setGlobalState = util.setGlobalState;
     this.offGlobalStateChange = util.offGlobalStateChange;
+    this.onGlobalStateChange((state: any, prev: any) => {
+      // state: 变更后的状态; prev 变更前的状态
+      console.log('shop', prev, state);
+    });
   }
 }

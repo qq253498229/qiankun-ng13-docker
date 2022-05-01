@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { initGlobalState, registerMicroApps, start } from 'qiankun';
+import { registerMicroApps, start } from 'qiankun';
 import { environment } from '../environments/environment';
+import { CommonService } from './shared/services/common.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,16 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private ngZone: NgZone) {
+  constructor(
+    private ngZone: NgZone,
+    private service: CommonService,
+  ) {
     (window as any).ngZone = this.ngZone;
   }
 
-  actions: any;
-
   ngOnInit(): void {
     this.initQiankun();
-
-    this.initState();
+    this.service.initState();
   }
 
   initQiankun() {
@@ -32,14 +33,7 @@ export class AppComponent implements OnInit {
     start();
   }
 
-  initState() {
-    const state = {
-      test: '',
-    };
-    this.actions = initGlobalState(state);
-    this.actions.onGlobalStateChange((state: Record<string, any>, prev: Record<string, any>) => {
-      // state: 变更后的状态; prev 变更前的状态
-      console.log(prev, state);
-    });
+  test1() {
+    this.service.setGlobalState({test: '456'});
   }
 }

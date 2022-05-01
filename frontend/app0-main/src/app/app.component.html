@@ -15,6 +15,10 @@
         <a routerLink="/user/list">用户管理</a>
       </li>
 
+      <li nz-menu-item nzMatchRouter>
+        <a (click)="test1()">test1</a>
+      </li>
+
       <li nz-submenu class="float-right" [nzTitle]="myTpl">
         <ul>
           <li nz-menu-item nzMatchRouter>
