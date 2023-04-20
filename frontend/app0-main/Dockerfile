@@ -1,14 +1,17 @@
-FROM node:18.0.0-alpine3.15 as builder
+FROM node:18.16.0-alpine3.17 as builder
 WORKDIR /app
 COPY package.json .
-COPY package-lock.json .
-RUN npm install --registry --registry=https://registry.npmmirror.com
+COPY yarn.lock .
+COPY .yarnrc .
+RUN yarn install
 COPY . .
-RUN npm run build
+RUN yarn run build
 
-FROM nginx:1.21.6-alpine
+FROM nginx:1.23.4-alpine
 ENV TZ=PRC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+
 
 RUN echo "server { \
     listen       80; \

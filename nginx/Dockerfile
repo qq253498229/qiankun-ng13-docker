@@ -1,4 +1,4 @@
-FROM nginx:1.21.6-alpine
+FROM nginx:1.23.4-alpine
 ENV TZ=PRC
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
