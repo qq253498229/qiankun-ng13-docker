@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'goods'},
+  {path: '', redirectTo: 'goods', pathMatch: 'full'},
   {path: 'goods', component: GoodsComponent},
   {path: 'store', component: StoreComponent},
 ];

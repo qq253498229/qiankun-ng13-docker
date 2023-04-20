@@ -7,7 +7,7 @@ import { DetailsComponent } from './details/details.component';
 import { CommonService } from '../../shared/services/common.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'list'},
+  {path: '', redirectTo: 'list', pathMatch: 'full'},
   {path: 'list', component: ListComponent},
   {path: 'details', component: DetailsComponent},
 ];

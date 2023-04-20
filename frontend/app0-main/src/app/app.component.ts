@@ -34,6 +34,6 @@ export class AppComponent implements OnInit {
   }
 
   test1() {
-    this.service.setGlobalState({test2: {test: '456'}});
+    this.service.setGlobalState({test2: {test: new Date().getTime()}});
   }
 }

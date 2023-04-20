@@ -31,6 +31,6 @@ export class ListComponent implements OnInit {
   }
 
   test1() {
-    this.service.setGlobalState({test1: {test: '123'}});
+    this.service.setGlobalState({test1: {test: new Date().getTime()}});
   }
 }
